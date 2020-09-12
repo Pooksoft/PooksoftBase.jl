@@ -1,0 +1,4 @@
+name = "PooksoftBase"
+uuid = "17dff602-ea15-4a83-a4cd-e8c4e335a075"
+authors = ["Jeffrey Varner <jvarner@pooksoft.com>"]
+version = "0.1.0"

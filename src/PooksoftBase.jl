@@ -11,5 +11,6 @@ export PSAbstractAssetReturnModel
 export PSAbstractAssetTreeNode
 export PSAbstractAssetTree
 export PSAbstractProblemModel
+export checkresult
 
 end # module

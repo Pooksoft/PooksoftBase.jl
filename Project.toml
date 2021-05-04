@@ -1,7 +1,7 @@
 name = "PooksoftBase"
 uuid = "17dff602-ea15-4a83-a4cd-e8c4e335a075"
 authors = ["Jeffrey Varner <jvarner@pooksoft.com>"]
-version = "1.1.0"
+version = "1.2.0"
 
 [deps]
 Logging = "56ddb016-857b-54e1-b83d-db4d58db5568"

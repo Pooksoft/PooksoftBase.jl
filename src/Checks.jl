@@ -7,7 +7,7 @@ Returns the value stored in result, or throws the error if the value stored in `
 If the optional argument `logger` is not Nothing, the error message is written to a log file. 
 """
 function checkresult(result::PSResult; 
-    logger::Union{Nothing, SimpleLogger} = nothing)::(Union{Nothing,T} where T<:Any)
+    logger::Union{Nothing,SimpleLogger}=nothing)::(Union{Nothing,T} where T <: Any)
 
     # ok, so check, do we have an error object?
     # Yes: log the error if we have a logger, then throw the error. 
@@ -30,7 +30,30 @@ function checkresult(result::PSResult;
         end
 
         # throw -
-        throw(result.value)
+        rethrow(result.value)
+    end
+
+    # default -
+    return result.value
+end
+
+"""
+    checkresult(result::PSResult)->(Union{Nothing,T} where T<:Any)
+
+Checks the value of the argument `result` which is of type PSResult for a value or an error. 
+Returns the value stored in result, or rethrows the error if the value stored in `result` is an Exception type. 
+"""
+function checkresult(result::PSResult)::(Union{Nothing,T} where T <: Any)
+
+    # ok, so check, do we have an error object?
+    # Yes: rethrow the error. 
+    # No: return the result.value
+
+    # Error case -
+    if (isa(result.value, Exception) == true)
+        
+        # throw -
+        rethrow(result.value)
     end
 
     # default -
